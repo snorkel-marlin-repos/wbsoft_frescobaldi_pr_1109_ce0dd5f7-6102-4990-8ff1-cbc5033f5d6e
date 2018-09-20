@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+import sys
+
+from frescobaldi_app import toplevel
+toplevel.install()
+
+import main
+import app
+
+app.instantiate()               # Construct QApplication object
+main.main()                     # Parse command line, create windows etc
+
+sys.excepthook = app.excepthook # Show Python errors in a bugreport window
+
+sys.exit(app.run())
+
